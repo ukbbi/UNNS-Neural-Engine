@@ -18,6 +18,102 @@
             padding: 0 !important;
         }
         
+        /* Guide Panel Styles */
+        .unns-guide-overlay {
+            position: fixed !important;
+            top: 0 !important;
+            left: 0 !important;
+            width: 100% !important;
+            height: 100% !important;
+            background: rgba(0, 0, 0, 0.8) !important;
+            z-index: 20000 !important;
+            display: none !important;
+            justify-content: center !important;
+            align-items: center !important;
+        }
+        
+        .unns-guide-overlay.active {
+            display: flex !important;
+        }
+        
+        .unns-guide-panel {
+            background: linear-gradient(135deg, #1a1a2e, #0a0a1a) !important;
+            border: 2px solid #00ffcc !important;
+            border-radius: 20px !important;
+            width: 800px !important;
+            max-width: 90% !important;
+            max-height: 80vh !important;
+            overflow-y: auto !important;
+            padding: 30px !important;
+            position: relative !important;
+            box-shadow: 0 0 50px rgba(0, 255, 204, 0.5) !important;
+        }
+        
+        .unns-guide-close {
+            position: absolute !important;
+            top: 15px !important;
+            right: 20px !important;
+            font-size: 28px !important;
+            color: #00ffcc !important;
+            cursor: pointer !important;
+            transition: transform 0.3s ease !important;
+        }
+        
+        .unns-guide-close:hover {
+            transform: rotate(90deg) !important;
+        }
+        
+        .unns-guide-title {
+            color: #00ffcc !important;
+            font-size: 24px !important;
+            text-align: center !important;
+            margin-bottom: 25px !important;
+            text-transform: uppercase !important;
+            letter-spacing: 3px !important;
+        }
+        
+        .unns-guide-section {
+            margin-bottom: 25px !important;
+            padding: 15px !important;
+            background: rgba(0, 255, 204, 0.05) !important;
+            border-left: 3px solid #00ffcc !important;
+            border-radius: 8px !important;
+        }
+        
+        .unns-guide-section-title {
+            color: #ffd700 !important;
+            font-size: 16px !important;
+            font-weight: bold !important;
+            margin-bottom: 10px !important;
+        }
+        
+        .unns-guide-text {
+            color: #ffffff !important;
+            font-size: 14px !important;
+            line-height: 1.6 !important;
+        }
+        
+        .unns-guide-list {
+            margin: 10px 0 !important;
+            padding-left: 20px !important;
+        }
+        
+        .unns-guide-list li {
+            color: #aaaaaa !important;
+            margin: 5px 0 !important;
+        }
+        
+        .unns-guide-highlight {
+            color: #00ffcc !important;
+            font-weight: bold !important;
+        }
+        
+        .unns-guide-glyph {
+            color: #ffd700 !important;
+            font-size: 18px !important;
+            font-weight: bold !important;
+        }
+        
         /* Toggle Button for Equation Composer - Bottom Center */
         .unns-composer-toggle {
             position: fixed !important;
@@ -312,6 +408,12 @@
             box-shadow: 0 5px 15px rgba(0, 255, 204, 0.4) !important;
         }
         
+        .unns-btn-guide {
+            background: linear-gradient(135deg, #ffd700, #ff6600) !important;
+            width: calc(100% - 10px) !important;
+            margin-top: 15px !important;
+        }
+        
         /* Archetype Display */
         .unns-archetype-box {
             background: rgba(255, 215, 0, 0.1) !important;
@@ -442,6 +544,109 @@
 </head>
 <body>
     <div class="unns-main-container">
+        <!-- Guide Overlay -->
+        <div class="unns-guide-overlay" id="guideOverlay">
+            <div class="unns-guide-panel">
+                <span class="unns-guide-close" id="guideClose">✕</span>
+                <div class="unns-guide-title">📖 Neural Engine User Guide</div>
+                
+                <div class="unns-guide-section">
+                    <div class="unns-guide-section-title">🚀 Quick Start</div>
+                    <div class="unns-guide-text">
+                        Welcome to the UNNS Neural Symbolic Engine! This is an interactive visualization of a quantum-inspired neural network. Watch as nodes activate, form connections, and create emergent patterns.
+                        <ul class="unns-guide-list">
+                            <li>The <span class="unns-guide-highlight">network runs automatically</span> - nodes pulse and connect in real-time</li>
+                            <li>Use the <span class="unns-guide-highlight">Control Panel</span> (right side) to adjust parameters</li>
+                            <li>Watch the <span class="unns-guide-highlight">Cognitive Commentary</span> (top left) for system insights</li>
+                            <li>Create symbolic equations with the <span class="unns-guide-highlight">Equation Composer</span> (bottom)</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="unns-guide-section">
+                    <div class="unns-guide-section-title">⚡ Control Parameters</div>
+                    <div class="unns-guide-text">
+                        <ul class="unns-guide-list">
+                            <li><span class="unns-guide-highlight">Validation (V)</span>: Controls node activation threshold</li>
+                            <li><span class="unns-guide-highlight">Entanglement (ψ)</span>: Sets quantum correlation strength between nodes</li>
+                            <li><span class="unns-guide-highlight">Decoherence</span>: Rate of quantum state collapse</li>
+                            <li><span class="unns-guide-highlight">Memory Depth</span>: How many previous states each node remembers</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="unns-guide-section">
+                    <div class="unns-guide-section-title">🎭 Archetypes</div>
+                    <div class="unns-guide-text">
+                        Archetypes are cognitive patterns that influence network behavior:
+                        <ul class="unns-guide-list">
+                            <li><span class="unns-guide-glyph">φ</span> <span class="unns-guide-highlight">Architect</span>: Structure and golden ratio harmony</li>
+                            <li><span class="unns-guide-glyph">ψ</span> <span class="unns-guide-highlight">Explorer</span>: Recursive depth exploration</li>
+                            <li><span class="unns-guide-glyph">ρ</span> <span class="unns-guide-highlight">Synthesizer</span>: Integration and emergence</li>
+                            <li><span class="unns-guide-glyph">λ</span> <span class="unns-guide-highlight">Oracle</span>: Vision and foresight</li>
+                            <li><span class="unns-guide-glyph">π</span> <span class="unns-guide-highlight">Weaver</span>: Connection patterns</li>
+                            <li><span class="unns-guide-glyph">α</span> <span class="unns-guide-highlight">Alchemist</span>: Transformation</li>
+                            <li><span class="unns-guide-glyph">ν</span> <span class="unns-guide-highlight">Navigator</span>: Pathfinding</li>
+                            <li><span class="unns-guide-glyph">σ</span> <span class="unns-guide-highlight">Harmonizer</span>: Balance</li>
+                            <li><span class="unns-guide-glyph">∞</span> <span class="unns-guide-highlight">Shapeshifter</span>: Emerges when blending archetypes at 40-60%</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="unns-guide-section">
+                    <div class="unns-guide-section-title">🔮 Equation Composer</div>
+                    <div class="unns-guide-text">
+                        Click the <span class="unns-guide-highlight">"Equation Composer"</span> button at the bottom to create symbolic patterns:
+                        <ul class="unns-guide-list">
+                            <li>Click glyphs to build equations</li>
+                            <li>Use preset patterns for complex behaviors</li>
+                            <li>Special patterns trigger unique network states</li>
+                            <li>Example: <span class="unns-guide-highlight">ψ ⊗ ψ → ∞</span> creates maximum entanglement</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="unns-guide-section">
+                    <div class="unns-guide-section-title">🎮 Action Buttons</div>
+                    <div class="unns-guide-text">
+                        <ul class="unns-guide-list">
+                            <li><span class="unns-guide-highlight">Activate Attractor</span>: Apply selected archetype to network</li>
+                            <li><span class="unns-guide-highlight">Quantum Collapse</span>: Force wavefunction collapse on all nodes</li>
+                            <li><span class="unns-guide-highlight">Silent Mode</span>: Toggle cognitive commentary on/off</li>
+                            <li><span class="unns-guide-highlight">Reset Network</span>: Clear all activations and start fresh</li>
+                            <li><span class="unns-guide-highlight">Pause/Resume</span>: Control network animation</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="unns-guide-section">
+                    <div class="unns-guide-section-title">📊 Understanding the Display</div>
+                    <div class="unns-guide-text">
+                        <ul class="unns-guide-list">
+                            <li><span class="unns-guide-highlight">Cyan lines</span>: Active neural connections (brightness = strength)</li>
+                            <li><span class="unns-guide-highlight">Purple dashed lines</span>: Quantum entanglement between nodes</li>
+                            <li><span class="unns-guide-highlight">Node glow</span>: Activation level (brighter = more active)</li>
+                            <li><span class="unns-guide-highlight">White dashed circle</span>: Node in collapsed quantum state</li>
+                            <li><span class="unns-guide-highlight">Coherence Field bar</span>: Overall network synchronization</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="unns-guide-section">
+                    <div class="unns-guide-section-title">💡 Pro Tips</div>
+                    <div class="unns-guide-text">
+                        <ul class="unns-guide-list">
+                            <li>Blend two archetypes at 50% ratio to summon the <span class="unns-guide-highlight">Shapeshifter</span></li>
+                            <li>High entanglement creates non-local correlations between distant nodes</li>
+                            <li>Watch for <span class="unns-guide-highlight">golden messages</span> in commentary - they indicate peak resonance</li>
+                            <li>Experiment with equation patterns to discover hidden behaviors</li>
+                            <li>The network remembers past states - memory depth affects pattern emergence</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
         <!-- Cognitive Commentary Panel -->
         <div class="unns-commentary-panel" id="commentaryPanel">
             <div class="unns-commentary-title">🧠 Cognitive State Commentary</div>
@@ -520,6 +725,7 @@
                 <button class="unns-btn" id="silentBtn">Silent Mode</button>
                 <button class="unns-btn" id="resetBtn">Reset Network</button>
                 <button class="unns-btn" id="pauseBtn">Pause</button>
+                <button class="unns-btn unns-btn-guide" id="guideBtn">📖 How to Use</button>
             </div>
             
             <div class="unns-archetype-box" id="archetypeBox">
@@ -612,6 +818,21 @@
         }
         resizeCanvas();
         window.addEventListener('resize', resizeCanvas);
+        
+        // Guide functionality
+        document.getElementById('guideBtn').addEventListener('click', function() {
+            document.getElementById('guideOverlay').className = 'unns-guide-overlay active';
+        });
+        
+        document.getElementById('guideClose').addEventListener('click', function() {
+            document.getElementById('guideOverlay').className = 'unns-guide-overlay';
+        });
+        
+        document.getElementById('guideOverlay').addEventListener('click', function(e) {
+            if (e.target === this) {
+                this.className = 'unns-guide-overlay';
+            }
+        });
         
         // Commentary System
         var Commentary = {
